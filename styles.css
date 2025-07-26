@@ -1,0 +1,21 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.aviso {
+  display: none;
+  padding: 10px;
+  text-align: center;
+  color: white;
+  background-color: #c0392b;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.aviso.online {
+  background-color: #27ae60;
+}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Ícones da aplicação (favicon e iOS) -->
+    <link rel="icon" href="./icons/192.png" sizes="192x192" type="image/png">
+    <link rel="apple-touch-icon" href="./icons/apple-icon-180.png">
+
+    <!-- Manifesto PWA -->
+    <link rel="manifest" href="./manifest.json">
+
+    <!-- Meta tags para Android e iOS -->
+    <meta name="theme-color" content="#caf0f8">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+
+    <title>Site para APP</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+    <!-- Avisos de perda de conexão -->
+    <div id="aviso-conexao" class="aviso">🔌 Conexão perdida. Você está offline.</div>
+    <div id="aviso-online" class="aviso online">✅ Conectado novamente.</div>
+
+    <h1>Bem-vindo ao Mural de Serviços</h1>
+    <p>Este app funciona offline e pode ser instalado como aplicativo.</p>
+
+
+    <script src="./verificarconexao.js"></script>
+
+    <script>
+        // Registro do service worker
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/service-worker.js')
+                .then(() => console.log('✅ Service Worker registrado'))
+                .catch(err => console.error('❌ Erro ao registrar SW:', err));
+        }
+    </script>
+</body>
+
+</html>
