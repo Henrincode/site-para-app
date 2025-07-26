@@ -12,6 +12,6 @@ function verificarConexao() {
   }
 }
 
-window.addEventListener('load', verificarConexao);
+// window.addEventListener('load', verificarConexao);
 window.addEventListener('online', verificarConexao);
 window.addEventListener('offline', verificarConexao);
