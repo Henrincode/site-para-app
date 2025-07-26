@@ -1,6 +1,6 @@
 {
-  "name": "Mural de Serviços",
-  "short_name": "Mural",
+  "name": "Site para APP",
+  "short_name": "SiteAPP",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
