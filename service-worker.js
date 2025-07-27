@@ -1,4 +1,4 @@
-const CACHE_NAME = 'mural-cache-v1';
+const CACHE_NAME = 'mural-cache-v2';
 const OFFLINE_URL = './offline.html';
 
 const ASSETS = [
