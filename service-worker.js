@@ -1,11 +1,11 @@
-const CACHE_NAME = 'mural-cache-v5';
+const CACHE_NAME = 'teste-v1';
 const OFFLINE_URL = './offline.html';
 
 const ASSETS = [
     './',
-    './index.html',
+    // './index.html',
     './offline.html',
-    './styles.css',
+    // './styles.css',
     './verificarconexao.js',
     './icons/192.png',
     // './icons/512.png',
