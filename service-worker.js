@@ -1,4 +1,4 @@
-const CACHE_NAME = 'mural-cache-v1';
+const CACHE_NAME = 'mural-cache-v5';
 const OFFLINE_URL = './offline.html';
 
 const ASSETS = [
@@ -6,9 +6,9 @@ const ASSETS = [
     './index.html',
     './offline.html',
     './styles.css',
-    './main.js',
+    './verificarconexao.js',
     './icons/192.png',
-    './icons/512.png',
+    // './icons/512.png',
     './icons/apple-icon-180.png'
 ];
 
