@@ -1,14 +1,15 @@
-const CACHE_NAME = 'mural-cache-v3';
-const OFFLINE_URL = '/offline.html';        // caminho absoluto
+const CACHE_NAME = 'mural-cache-v1';
+const OFFLINE_URL = './offline.html';
+
 const ASSETS = [
-    '/',                                       // index
-    '/index.html',
-    '/offline.html',
-    '/styles.css',
-    '/verificarconexao.js',
-    '/icons/192.png',
-    '/icons/512.png',
-    '/icons/apple-icon-180.png',
+    './',
+    './index.html',
+    './offline.html',
+    './styles.css',
+    './main.js',
+    './icons/192.png',
+    './icons/512.png',
+    './icons/apple-icon-180.png'
 ];
 
 self.addEventListener('install', event => {
@@ -21,35 +22,16 @@ self.addEventListener('install', event => {
 
 self.addEventListener('activate', event => {
     event.waitUntil(
-        caches.keys().then(keys =>
-            Promise.all(
-                keys
-                    .filter(key => key !== CACHE_NAME)
-                    .map(key => caches.delete(key))
-            )
-        ).then(() => self.clients.claim())
+        caches.keys().then(keys => Promise.all(
+            keys.filter(key => key !== CACHE_NAME).map(key => caches.delete(key))
+        )).then(() => self.clients.claim())
     );
 });
 
 self.addEventListener('fetch', event => {
-    // Se for navegação (página HTML sendo carregada)...
-    if (event.request.mode === 'navigate') {
-        event.respondWith(
-            fetch(event.request)
-                .then(response => {
-                    // se funcionar, atualiza cache da página de navegação
-                    const copy = response.clone();
-                    caches.open(CACHE_NAME).then(cache => cache.put(event.request, copy));
-                    return response;
-                })
-                .catch(() => caches.match(OFFLINE_URL))
-        );
-        return;
-    }
-
-    // Para outros recursos (CSS, JS, imagens)…
     event.respondWith(
-        caches.match(event.request)
-            .then(cached => cached || fetch(event.request))
+        fetch(event.request).catch(() => {
+            return caches.match(event.request).then(resp => resp || caches.match(OFFLINE_URL));
+        })
     );
 });
