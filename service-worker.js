@@ -1,4 +1,4 @@
-const CACHE_NAME = 'teste-v1';
+const CACHE_NAME = 'teste-v2';
 const OFFLINE_URL = './offline.html';
 
 const ASSETS = [
